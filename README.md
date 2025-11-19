@@ -1,147 +1,199 @@
+Absolutely! Here’s a **GitHub-ready version** of your README with badges, clean formatting, and a professional look:
+
+---
+
 # Kenya Tender Connect - Backend Server
 
-Backend API for Kenya Tender Connect platform built with Flask, MySQL, and JWT authentication.
+[![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-2.3+-green?logo=flask)](https://flask.palletsprojects.com/)
+[![MySQL](https://img.shields.io/badge/MySQL-5.7+-blue?logo=mysql)](https://www.mysql.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+Backend API for the **Kenya Tender Connect** platform built with **Flask, MySQL, and JWT authentication**.
+
+---
 
 ## Features
 
-- 🔐 JWT Authentication & Authorization
-- 📋 Tender Management (CRUD operations)
-- 📄 Application Management
-- 👥 User Management
-- 📁 Document Upload Support
-- 🌐 RESTful API
+* 🔐 JWT Authentication & Authorization
+* 📋 Tender Management (CRUD operations)
+* 📄 Application Management
+* 👥 User Management
+* 📁 Document Upload Support
+* 🌐 RESTful API
+
+---
 
 ## Tech Stack
 
-- **Backend**: Flask, Python
-- **Database**: MySQL with SQLAlchemy ORM
-- **Authentication**: JWT with Flask-JWT-Extended
-- **File Upload**: Secure document handling
-- **CORS**: Cross-Origin Resource Sharing enabled
+* **Backend:** Flask, Python
+* **Database:** MySQL with SQLAlchemy ORM
+* **Authentication:** JWT with Flask-JWT-Extended
+* **File Upload:** Secure document handling
+* **CORS:** Cross-Origin Resource Sharing enabled
+
+---
 
 ## Quick Start
 
 ### Prerequisites
 
-- Python 3.8+
-- MySQL 5.7+
-- pip (Python package manager)
+* Python 3.8+
+* MySQL 5.7+
+* `pip` (Python package manager)
 
 ### Installation
 
 1. **Clone the repository**
-   ```bash
-   git clone https://github.com/toel-kamanda34/kenya-tender-connect-server.git
-   cd kenya-tender-connect-server```
+
+```bash
+git clone https://github.com/toel-kamanda34/kenya-tender-connect-server.git
+cd kenya-tender-connect-server
+```
+
 2. **Create virtual environment**
 
 ```bash
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate```
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
 3. **Install dependencies**
 
 ```bash
-pip install -r requirements.txt```
+pip install -r requirements.txt
+```
+
 4. **Set up environment variables**
 
 ```bash
-cp .env.example .env```
+cp .env.example .env
 # Edit .env with your database credentials and secret keys
-Set up database
+```
 
-bash
+5. **Set up database**
+
+```bash
 python scripts/setup_db.py
-Seed sample data (optional)
+```
 
-bash
+6. **Seed sample data (optional)**
+
+```bash
 python scripts/seed_data.py
-Run the application
+```
 
-bash
+7. **Run the application**
+
+```bash
 python run.py
-The API will be available at http://localhost:5000
+```
 
-API Endpoints
-Authentication
-POST /api/auth/register - User registration
+The API will be available at: `http://localhost:5000`
 
-POST /api/auth/login - User login
+---
 
-GET /api/auth/me - Get current user
+## API Endpoints
 
-Tenders
-GET /api/tenders - List all tenders (with filters)
+### Authentication
 
-GET /api/tenders/<id> - Get tender details
+| Method | Endpoint             | Description       |
+| ------ | -------------------- | ----------------- |
+| POST   | `/api/auth/register` | User registration |
+| POST   | `/api/auth/login`    | User login        |
+| GET    | `/api/auth/me`       | Get current user  |
 
-POST /api/tenders - Create new tender (admin)
+### Tenders
 
-PUT /api/tenders/<id> - Update tender (admin)
+| Method | Endpoint            | Description                     |
+| ------ | ------------------- | ------------------------------- |
+| GET    | `/api/tenders`      | List all tenders (with filters) |
+| GET    | `/api/tenders/<id>` | Get tender details              |
+| POST   | `/api/tenders`      | Create new tender (admin)       |
+| PUT    | `/api/tenders/<id>` | Update tender (admin)           |
+| DELETE | `/api/tenders/<id>` | Delete tender (admin)           |
 
-DELETE /api/tenders/<id> - Delete tender (admin)
+### Applications
 
-Applications
-GET /api/applications - Get user's applications
+| Method | Endpoint                        | Description             |
+| ------ | ------------------------------- | ----------------------- |
+| GET    | `/api/applications`             | Get user's applications |
+| POST   | `/api/applications`             | Create new application  |
+| PUT    | `/api/applications/<id>`        | Update application      |
+| POST   | `/api/applications/<id>/submit` | Submit application      |
 
-POST /api/applications - Create new application
+---
 
-PUT /api/applications/<id> - Update application
+## Environment Variables
 
-POST /api/applications/<id>/submit - Submit application
+Create a `.env` file with the following:
 
-Environment Variables
-Create a .env file with the following variables:
-
-env
+```env
 SECRET_KEY=your-secret-key-here
 JWT_SECRET_KEY=your-jwt-secret-key-here
 DATABASE_URL=mysql+pymysql://username:password@localhost/kenya_tender_db
 FLASK_CONFIG=development
-Database Schema
+```
+
+---
+
+## Database Schema
+
 The application uses the following main tables:
 
-users - User accounts and profiles
+* `users` - User accounts and profiles
+* `tenders` - Tender listings and details
+* `applications` - User applications for tenders
 
-tenders - Tender listings and details
+---
 
-applications - User applications for tenders
+## Development
 
-Development
-Running Tests
-bash
+### Running Tests
+
+```bash
 python -m pytest tests/
-Database Migrations
-bash
+```
+
+### Database Migrations
+
+```bash
 flask db init
 flask db migrate -m "Migration message"
 flask db upgrade
-Deployment
+```
+
+---
+
+## Deployment
+
 The application can be deployed to various platforms:
 
-Railway: Easy Flask deployment
+* **Railway:** Easy Flask deployment
+* **Heroku:** Traditional PaaS
+* **AWS Elastic Beanstalk:** AWS deployment
+* **DigitalOcean App Platform:** Simple app deployment
 
-Heroku: Traditional PaaS
+---
 
-AWS Elastic Beanstalk: AWS deployment
+## Contributing
 
-DigitalOcean App Platform: Simple app deployment
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
 
-Contributing
-Fork the repository
+---
 
-Create a feature branch
+## Support
 
-Commit your changes
+For support:
 
-Push to the branch
+* Email: [toelokemwa@gmail.com](mailto:toelokemwa@gmail.com)
+* Or create an issue in the repository
 
-Create a Pull Request
 
-License
-This project is licensed under the MIT License.
-
-Support
-For support, email toelokemwa@gmail.com or create an issue in the repository.
 
 
 
