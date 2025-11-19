@@ -32,20 +32,20 @@ Backend API for Kenya Tender Connect platform built with Flask, MySQL, and JWT a
 1. **Clone the repository**
    ```bash
    git clone https://github.com/toel-kamanda34/kenya-tender-connect-server.git
-   cd kenya-tender-connect-server
+   cd kenya-tender-connect-server```
 2. **Create virtual environment**
 
 ```bash
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate  # On Windows: venv\Scripts\activate```
 3. **Install dependencies**
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.txt```
 4. **Set up environment variables**
 
 ```bash
-cp .env.example .env
+cp .env.example .env```
 # Edit .env with your database credentials and secret keys
 Set up database
 
