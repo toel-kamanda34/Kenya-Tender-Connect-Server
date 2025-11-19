@@ -1,7 +1,3 @@
-Absolutely! Here’s a **GitHub-ready version** of your README with badges, clean formatting, and a professional look:
-
----
-
 # Kenya Tender Connect - Backend Server
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python)](https://www.python.org/)
