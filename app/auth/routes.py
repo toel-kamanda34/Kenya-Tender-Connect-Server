@@ -33,7 +33,7 @@ def register():
         db.session.commit()
         
         # Create access token
-        access_token = create_access_token(identity=user.id)
+        access_token = create_access_token(identity=str(user.id))
         
         return jsonify({
             'message': 'User created successfully',
@@ -55,7 +55,7 @@ def login():
         user = User.query.filter_by(email=data['email']).first()
         
         if user and user.check_password(data['password']):
-            access_token = create_access_token(identity=user.id)
+            access_token = create_access_token(identity=str(user.id))
             return jsonify({
                 'access_token': access_token,
                 'user': user.to_dict()
@@ -70,7 +70,9 @@ def login():
 @jwt_required()
 def get_current_user():
     try:
-        user_id = get_jwt_identity()
+        user_id = int(get_jwt_identity())
+
+        # user_id = get_jwt_identity()
         user = User.query.get(user_id)
         
         if not user:
